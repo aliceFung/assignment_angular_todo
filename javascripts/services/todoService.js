@@ -2,25 +2,14 @@ app.factory('todoService', function(){
 
   var obj = {};
 
-  var _items = [
-              { text: "Get groceries from the store",
-                            dueDate: new Date(),
-                            completed: true },
-
-              { text: "Get more stuff from the store",
-              dueDate: new Date(),
-              completed: false },
-
-              { text: "Get even more stuff from the store",
-                            dueDate: new Date(),
-                            completed: false }
-              ];
+  var _items = [];
 
   obj.getItems = function(){
     return _items;
   };
 
   obj.createItem = function(item){
+    console.log( item , _items);
     item.completed = false;
     _items.push(item);
   };
@@ -31,7 +20,7 @@ app.factory('todoService', function(){
 
   obj.clearCompleted = function(){
     //selects subset of array and returns new array
-    obj._items = _items.filter(function(item){
+    _items = _items.filter(function(item){
         //keep whatever you return
         return !item.completed;
     });

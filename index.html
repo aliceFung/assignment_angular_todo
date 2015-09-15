@@ -1,45 +1,46 @@
 <html ng-app = "todo">
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <!-- // <script src="//use.edgefonts.net/vast-shadow:n4:all.js"></script> -->
-    <!-- // <script src="//use.edgefonts.net/vast-shadow:n4:all;megrim.js"></script> -->
-  </head>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 
-  <body ng-controller="TodoCtrl">
+</head>
 
-    <h1>Angular To-Do List</h1>
+<body ng-controller="TodoCtrl">
 
-    <h3>New Item</h3>
+  <h1>Angular To-Do List</h1>
 
-    <form>
-      <input type="text" placeholder="enter task" ng-model = "item.text">
-      <input type="date" placeholder="YYYY-MM-DD" ng-model = "item.dueDate">
-      <input type="submit" value="Create TO-DO!" ng-click="createItem()">
-    </form>
+  <h3>New Item</h3>
 
-    <h3>Existing Items</h3>
+  <form>
+    <input type="text" placeholder="enter task" ng-model = "item.text">
+    <input type="date" placeholder="YYYY-MM-DD" ng-model = "item.dueDate">
+    <input type="submit" value="Create TO-DO!" ng-click="createItem()">
+  </form>
 
-    <button ng-click="toggleCompletedDisplay()" ng-model="completion.display">{{completion.text}}</button>
+  <h3>Existing Items</h3>
 
-    <table>
-      <tr todo-item ng-repeat="item in items | showCompleted:completion.display" item = "item">
-        <!-- | showCompleted(completion.display)" -->
+  <button ng-click="toggleCompletedDisplay()" ng-model="completion.display">{{completion.text}}</button>
 
-      </tr>
+  <table>
+    <tr todo-item ng-repeat="item in items | filter: showItem()" item-obj = "item" >
 
-    </table>
+    </tr>
 
-    <button ng-click="clearCompleted()">Clear Completed</button>
+  </table>
 
-    <!-- angular app -->
-    <script src="javascripts/app.js"></script>
+  <button ng-click="clearCompleted()">Clear Completed</button>
 
-    <!-- controllers -->
-    <script src = "javascripts/controllers/TodoCtrl.js"></script>
+  <!-- angular app -->
+  <script src="javascripts/app.js"></script>
 
-    <!-- directives -->
-    <script src = "javascripts/directives/todoItem.js"></script>
+  <!-- services -->
+  <script src="javascripts/services/todoService.js"></script>
 
-  </body>
+  <!-- controllers -->
+  <script src = "javascripts/controllers/TodoCtrl.js"></script>
+
+  <!-- directives -->
+  <script src = "javascripts/directives/todoItem.js"></script>
+
+</body>
 
 </html>

@@ -3,7 +3,8 @@ app.directive("todoItem", function(){
   return {
     restrict: 'A',
     scope: {
-      item: '='
+      itemObj: '=',
+      // deleteItem: '&'
     },
     templateUrl: 'javascripts/directives/todoItem.html'
   };
