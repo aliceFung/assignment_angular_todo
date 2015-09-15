@@ -4,10 +4,13 @@
     <!-- // <script src="//use.edgefonts.net/vast-shadow:n4:all.js"></script> -->
     <!-- // <script src="//use.edgefonts.net/vast-shadow:n4:all;megrim.js"></script> -->
   </head>
-  <body ng-controller ="TodoCtrl">
+
+  <body ng-controller="TodoCtrl">
+
     <h1>Angular To-Do List</h1>
 
     <h3>New Item</h3>
+
     <form>
       <input type="text" placeholder="enter task" ng-model = "item.text">
       <input type="date" placeholder="YYYY-MM-DD" ng-model = "item.dueDate">
@@ -15,7 +18,9 @@
     </form>
 
     <h3>Existing Items</h3>
+
     <button ng-click="toggleCompletedDisplay()" ng-model="completion.display">{{completion.text}}</button>
+
     <table>
       <tr ng-repeat="item in items | showCompleted:completion.display" >
         <!-- | showCompleted(completion.display)" -->
@@ -26,8 +31,18 @@
       </tr>
 
     </table>
+
     <button ng-click="clearCompleted()">Clear Completed</button>
-    <script src="app.js"></script>
+
+    <!-- angular app -->
+    <script src="javascripts/app.js"></script>
+
+    <!-- controllers -->
+    <script src = "javascripts/controllers/TodoCtrl.js"></script>
+
+    <!-- directives -->
+    <!-- // <script src = "js/directives/firstDirective.js"></script> -->
+
   </body>
 
 </html>
