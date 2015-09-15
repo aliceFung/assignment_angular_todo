@@ -1,5 +1,26 @@
 var app = angular.module("todo",[]);
 
+app.filter("showCompleted", function(){
+
+  return function(input, show_option){
+    var filtered = [];
+
+    angular.forEach(input, function(item){
+
+      //show everything
+      if(show_option){
+        filtered.push(item);
+      } // hide completed === only show incomplete items
+      else if (!item.completed) {
+        filtered.push(item);
+      }
+    });
+
+    return filtered;
+  };
+
+});
+
 app.controller("TodoCtrl", ["$scope", "$window", function($scope, $window){
 
   $scope.createItem = function(){
@@ -25,7 +46,7 @@ app.controller("TodoCtrl", ["$scope", "$window", function($scope, $window){
     });
   };
 
-  $scope.completionDisplay = function(){
+  $scope.toggleCompletedDisplay = function(){
     $scope.completion.display = !($scope.completion.display);
     if ($scope.completion.display){
       $scope.completion.text = "Hide Completed";
@@ -34,6 +55,7 @@ app.controller("TodoCtrl", ["$scope", "$window", function($scope, $window){
     }
   };
 
+  //if true, completed task are shown
   $scope.completion = { display: true,
                         text: "Hide Completed"};
 
