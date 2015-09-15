@@ -6,9 +6,10 @@ app.controller("TodoCtrl", ["$scope", "$window", function($scope, $window){
     console.log($scope.item.text + " due " + $scope.item.dueDate);
     $scope.items.push($scope.item);
 
-    // clearing input, null doesn't allow you to submit empty inputs
-    // because no item.text /item.dueDate property
-    $scope.item = null;
+    // clearing input
+    $scope.item = { text: "",
+                dueDate: new Date(),
+                completed: false };
     // $window.alert('something pops up');
   };
 
