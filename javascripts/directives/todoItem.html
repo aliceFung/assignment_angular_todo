@@ -1,0 +1,6 @@
+<tr>
+ <td><input type="checkbox" ng-model="item.completed"></td>
+  <td>{{item.text}}</td>
+  <td>{{item.dueDate | date: 'MMM dd, yyyy' }}</td>
+  <td><a style="color:red; text-decoration:none" href="" ng-click="deleteItem($index)">X</a></td>
+</tr>
