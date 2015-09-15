@@ -3,7 +3,7 @@ var app = angular.module("todo",[]);
 app.controller("TodoCtrl", ["$scope", "$window", function($scope, $window){
 
   $scope.createItem = function(){
-    console.log($scope.item.text + " due " + $scope.item.dueDate);
+    console.log($scope.item.text + " due " + $scope.item.dueDate + " completed: " + $scope.item.completed);
     $scope.items.push($scope.item);
 
     // clearing input
@@ -13,10 +13,20 @@ app.controller("TodoCtrl", ["$scope", "$window", function($scope, $window){
     // $window.alert('something pops up');
   };
 
+  $scope.deleteItem = function(index){
+        $scope.items.splice(index,1);
+  };
+
+  $scope.clearCompleted = function(){
+    $scope.items = $scope.items.filter(function(item){
+        return !item.completed
+    })
+  }
+
   $scope.items = [
   { text: "Get groceries from the store",
                 dueDate: new Date(),
-                completed: false },
+                completed: true },
 
   { text: "Get more stuff from the store",
   dueDate: new Date(),

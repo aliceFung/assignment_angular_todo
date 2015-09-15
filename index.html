@@ -17,12 +17,14 @@
     <h3>Existing Items</h3>
     <table>
       <tr ng-repeat="item in items">
+        <td><input type="checkbox" ng-model="item.completed"></td>
         <td>{{item.text}}</td>
         <td>{{item.dueDate | date: 'MMM dd, yyyy' }}</td>
-        <td>{{item.completed}}</td>
+        <td><a style="color:red; text-decoration:none" href="" ng-click="deleteItem($index)">X</a></td>
       </tr>
 
     </table>
+    <button ng-click="clearCompleted()">Clear Completed</button>
     <script src="app.js"></script>
   </body>
 
