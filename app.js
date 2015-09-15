@@ -18,10 +18,24 @@ app.controller("TodoCtrl", ["$scope", "$window", function($scope, $window){
   };
 
   $scope.clearCompleted = function(){
+    //selects subset of array and returns new array
     $scope.items = $scope.items.filter(function(item){
-        return !item.completed
-    })
-  }
+        //keep whatever you return
+        return !item.completed;
+    });
+  };
+
+  $scope.completionDisplay = function(){
+    $scope.completion.display = !($scope.completion.display);
+    if ($scope.completion.display){
+      $scope.completion.text = "Hide Completed";
+    } else {
+       $scope.completion.text = "Show Completed";
+    }
+  };
+
+  $scope.completion = { display: true,
+                        text: "Hide Completed"};
 
   $scope.items = [
   { text: "Get groceries from the store",

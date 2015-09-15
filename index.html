@@ -15,8 +15,10 @@
     </form>
 
     <h3>Existing Items</h3>
+    <button ng-click="completionDisplay()" ng-model="completion.display">{{completion.text}}</button>
     <table>
-      <tr ng-repeat="item in items">
+      <tr ng-repeat="item in items" >
+        <!-- | completionDisplay: completion.display" -->
         <td><input type="checkbox" ng-model="item.completed"></td>
         <td>{{item.text}}</td>
         <td>{{item.dueDate | date: 'MMM dd, yyyy' }}</td>
