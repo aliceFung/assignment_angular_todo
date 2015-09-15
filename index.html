@@ -4,9 +4,19 @@
     <!-- // <script src="//use.edgefonts.net/vast-shadow:n4:all.js"></script> -->
     <!-- // <script src="//use.edgefonts.net/vast-shadow:n4:all;megrim.js"></script> -->
   </head>
-  <body>
-    <table ng-controller ="TodoCtrl">
-      <tr>
+  <body ng-controller ="TodoCtrl">
+    <h1>Angular To-Do List</h1>
+
+    <h3>New Item</h3>
+    <form>
+      <input type="text" placeholder="enter task" ng-model = "item.text">
+      <input type="date" placeholder="YYYY-MM-DD" ng-model = "item.dueDate">
+      <input type="submit" value="Create TO-DO!" ng-click="createItem()">
+    </form>
+
+    <h3>Existing Items</h3>
+    <table>
+      <tr ng-repeat="item in items">
         <td>{{item.text}}</td>
         <td>{{item.dueDate | date: 'MMM dd, yyyy' }}</td>
         <td>{{item.completed}}</td>
