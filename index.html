@@ -21,7 +21,8 @@
   <button ng-click="toggleCompletedDisplay()" ng-model="completion.display">{{completion.text}}</button>
 
   <table>
-    <tr todo-item ng-repeat="item in items | filter: showItem()" item-obj = "item" >
+    <tr todo-item ng-repeat="item in items | filter: showItem()" item-obj = "item"  
+        delete-todo = "deleteTodo(item)" >
 
     </tr>
 

@@ -14,12 +14,16 @@ app.factory('todoService', function(){
     _items.push(item);
   };
 
-  obj.deleteItem = function(index){
-    obj._items.splice(index,1);
+  obj.deleteTodo = function(item){
+    console.log(item)
+
+     var index = _items.indexOf(item);
+     _items.splice(index,1);
   };
 
   obj.clearCompleted = function(){
     //selects subset of array and returns new array
+    console.log(_items)
     _items = _items.filter(function(item){
         //keep whatever you return
         return !item.completed;

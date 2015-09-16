@@ -11,12 +11,15 @@ app.controller("TodoCtrl", ["$scope", "$window", "todoService", function($scope,
     // $window.alert('something pops up');
   };
 
-  $scope.deleteItem = function(item){
-    var index = $scope.items.indexOf(item);
-    $scope.items.splice(index,1);
+  $scope.deleteTodo = function(item){
+    console.log("delete item: " )
+   todoService.deleteTodo(item);
   };
 
-  $scope.clearCompleted = todoService.clearCompleted;
+  $scope.clearCompleted = function(){
+   todoService.clearCompleted();
+   $scope.items = todoService.getItems();
+ }
 
   $scope.toggleCompletedDisplay = function(){
     $scope.completion.display = !($scope.completion.display);

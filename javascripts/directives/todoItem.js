@@ -4,7 +4,7 @@ app.directive("todoItem", function(){
     restrict: 'A',
     scope: {
       itemObj: '=',
-      // deleteItem: '&'
+      deleteTodo: '&'
     },
     templateUrl: 'javascripts/directives/todoItem.html'
   };
